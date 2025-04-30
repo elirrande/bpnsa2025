@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festa Junina Nossa Senhora Aparecida - Sobradinho/Contagem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fef6e4;
+        }
+        
+        .banner {
+            background-image: url('shared/imgs/aparecida001.png');
+            background-size: 350px ;
+            background-position: right;
+            background-color: rgba(0, 0, 0, 0.5);
+            background-repeat: no-repeat;
+            background-position: top;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #f97316, #ea580c);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px -3px rgba(239, 68, 68, 0.3);
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse 3s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Banner -->
+    <header class="banner text-white py-20 md:py-32 relative">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto">
+                
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-pulse-slow">Festa Junina 2025</h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-8">Paróquia Nossa Senhora Aparecida - Sobradinho/Contagem</h2>
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <span class="bg-orange-500 px-4 py-2 rounded-full font-bold">13 de Junho</span>
+                    <span class="bg-orange-500 px-4 py-2 rounded-full font-bold">14 de Junho</span>
+                    <span class="bg-orange-500 px-4 py-2 rounded-full font-bold">15 de Junho</span>
+                </div>
+                <div id="countdown" class="flex justify-center gap-4 mb-8">
+                    <div class="countdown-item rounded-lg p-4 text-center">
+                        <div class="text-3xl font-bold" id="days">00</div>
+                        <div class="text-sm">Dias</div>
+                    </div>
+                    <div class="countdown-item rounded-lg p-4 text-center">
+                        <div class="text-3xl font-bold" id="hours">00</div>
+                        <div class="text-sm">Horas</div>
+                    </div>
+                    <div class="countdown-item rounded-lg p-4 text-center">
+                        <div class="text-3xl font-bold" id="minutes">00</div>
+                        <div class="text-sm">Minutos</div>
+                    </div>
+                    <div class="countdown-item rounded-lg p-4 text-center">
+                        <div class="text-3xl font-bold" id="seconds">00</div>
+                        <div class="text-sm">Segundos</div>
+                    </div>
+                </div>
+                <a href="#programacao" class="btn-primary inline-block px-8 py-3 rounded-full font-bold text-white">Ver Programação</a>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 h-16 bg-white opacity-20"></div>
+    </header>
+
+    <!-- Sobre o Evento -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-orange-600 mb-4">Venha se divertir conosco!</h2>
+                <p class="text-gray-700 text-lg">
+                    A tradicional Festa Junina da Paróquia Nossa Senhora Aparecida está chegando com muitas atrações, 
+                    comidas típicas, jogos e muita diversão para toda a família. Toda a renda será revertida para as 
+                    obras sociais da paróquia.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-orange-50 p-6 rounded-xl card-hover transition-all duration-300">
+                    <div class="text-orange-500 text-4xl mb-4">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-orange-600">Comidas Típicas</h3>
+                    <p class="text-gray-700">
+                        Delicie-se com nossas barraquinhas de comida: canjica, pamonha, pipoca, cachorro-quente, 
+                        quentão e muitas outras delícias juninas!
+                    </p>
+                </div>
+                
+                <div class="bg-orange-50 p-6 rounded-xl card-hover transition-all duration-300">
+                    <div class="text-orange-500 text-4xl mb-4">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-orange-600">Jogos e Brincadeiras</h3>
+                    <p class="text-gray-700">
+                        Pescaria, tiro ao alvo, argola, boca do palhaço e muitas outras brincadeiras tradicionais 
+                        com prêmios para toda a família!
+                    </p>
+                </div>
+                
+                <div class="bg-orange-50 p-6 rounded-xl card-hover transition-all duration-300">
+                    <div class="text-orange-500 text-4xl mb-4">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-orange-600">Música e Dança</h3>
+                    <p class="text-gray-700">
+                        Shows com bandas regionais, quadrilhas juninas e muita música para você dançar e se divertir 
+                        ao ritmo do forró!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programação -->
+    <section id="programacao" class="py-16 bg-orange-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-orange-600 mb-12">Programação</h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-orange-500 mb-4 flex items-center">
+                        <i class="fas fa-calendar-day mr-2"></i> Sexta-feira - 13/06/2025
+                    </h3>
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="bg-orange-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-1 flex-shrink-0">1</span>
+                                <div>
+                                    <h4 class="font-bold">18:00 - Abertura Oficial</h4>
+                                    <p class="text-gray-600">Benção e abertura das barraquinhas</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-orange-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-1 flex-shrink-0">2</span>
+                                <div>
+                                    <h4 class="font-bold">19:30 - Quadrilha Infantil</h4>
+                                    <p class="text-gray-600">Apresentação das crianças da catequese</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-orange-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-1 flex-shrink-0">3</span>
+                                <div>
+                                    <h4 class="font-bold">21:00 - Show Musical</h4>
+                                    <p class="text-gray-600">Banda "Forró Pé de Serra"</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-orange-500 mb-4 flex items-center">
+                        <i class="fas fa-calendar-day mr-2"></i> Sábado - 14/06/2025
+                    </h3>
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="bg-orange-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-1 flex-shrink-0">1</span>
+                                <div>
+                                    <h4 class="font-bold">16:00 - Abertura das Barraquinhas</h4>
+                                    <p class="text-gray-600">Jogos e comidas típicas disponíveis</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-orange-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-1 flex-shrink-0">2</span>
+                                <div>
+                                    <h4 class="font-bold">19:00 - Quadrilha Adulta</h4>
+                                    <p class="text-gray-600">Grupo de dança da comunidade</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-orange-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-1 flex-shrink-0">3</span>
+                                <div>
+                                    <h4 class="font-bold">21:30 - Show Principal</h4>
+                                    <p class="text-gray-600">Banda "Arraiá do Coração"</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-orange-500 mb-4 flex items-center">
+                        <i class="fas fa-calendar-day mr-2"></i> Domingo - 15/06/2025
+                    </h3>
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="bg-orange-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-1 flex-shrink-0">1</span>
+                                <div>
+                                    <h4 class="font-bold">10:00 - Missa Solene</h4>
+                                    <p class="text-gray-600">Celebração em honra a Nossa Senhora Aparecida</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-orange-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-1 flex-shrink-0">2</span>
+                                <div>
+                                    <h4 class="font-bold">12:00 - Almoço Junino</h4>
+                                    <p class="text-gray-600">Pratos típicos à venda</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-orange-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-1 flex-shrink-0">3</span>
+                                <div>
+                                    <h4 class="font-bold">15:00 - Encerramento</h4>
+                                    <p class="text-gray-600">Sorteio de brindes e agradecimentos</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Barraquinhas -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-orange-600 mb-12">Nossas Barraquinhas</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-orange-50 rounded-xl overflow-hidden shadow-md card-hover transition-all duration-300">
+                    <div class="h-48 bg-orange-200 flex items-center justify-center">
+                        <i class="fas fa-hamburger text-6xl text-orange-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-orange-600">Barraquinha de Alimentos</h3>
+                        <p class="text-gray-700 mb-4">
+                            Cachorro-quente, pipoca, pamonha, canjica, bolo de milho e outras delícias juninas.
+                        </p>
+                        <div class="flex items-center text-orange-500">
+                            <i class="fas fa-tags mr-2"></i>
+                            <span>Preços a partir de R$ 5,00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-orange-50 rounded-xl overflow-hidden shadow-md card-hover transition-all duration-300">
+                    <div class="h-48 bg-orange-200 flex items-center justify-center">
+                        <i class="fas fa-wine-glass-alt text-6xl text-orange-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-orange-600">Barraquinha de Bebidas</h3>
+                        <p class="text-gray-700 mb-4">
+                            Quentão, vinho quente, refrigerantes, sucos naturais e água mineral.
+                        </p>
+                        <div class="flex items-center text-orange-500">
+                            <i class="fas fa-tags mr-2"></i>
+                            <span>Preços a partir de R$ 3,00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-orange-50 rounded-xl overflow-hidden shadow-md card-hover transition-all duration-300">
+                    <div class="h-48 bg-orange-200 flex items-center justify-center">
+                        <i class="fas fa-fish text-6xl text-orange-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-orange-600">Pescaria</h3>
+                        <p class="text-gray-700 mb-4">
+                            Tradicional pescaria com prêmios para todas as idades. Diversão garantida!
+                        </p>
+                        <div class="flex items-center text-orange-500">
+                            <i class="fas fa-tags mr-2"></i>
+                            <span>R$ 2,00 por tentativa</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-orange-50 rounded-xl overflow-hidden shadow-md card-hover transition-all duration-300">
+                    <div class="h-48 bg-orange-200 flex items-center justify-center">
+                        <i class="fas fa-bullseye text-6xl text-orange-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-orange-600">Tiro ao Alvo</h3>
+                        <p class="text-gray-700 mb-4">
+                            Teste sua pontaria e ganhe prêmios especiais!
+                        </p>
+                        <div class="flex items-center text-orange-500">
+                            <i class="fas fa-tags mr-2"></i>
+                            <span>R$ 3,00 por 5 tentativas</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-orange-50 rounded-xl overflow-hidden shadow-md card-hover transition-all duration-300">
+                    <div class="h-48 bg-orange-200 flex items-center justify-center">
+                        <i class="fas fa-ring text-6xl text-orange-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-orange-600">Jogo de Argolas</h3>
+                        <p class="text-gray-700 mb-4">
+                            Tradicional jogo de argolas com diversos prêmios para você tentar acertar.
+                        </p>
+                        <div class="flex items-center text-orange-500">
+                            <i class="fas fa-tags mr-2"></i>
+                            <span>R$ 2,00 por 3 argolas</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-orange-50 rounded-xl overflow-hidden shadow-md card-hover transition-all duration-300">
+                    <div class="h-48 bg-orange-200 flex items-center justify-center">
+                        <i class="fas fa-gift text-6xl text-orange-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-orange-600">Bazar Beneficente</h3>
+                        <p class="text-gray-700 mb-4">
+                            Produtos diversos com preços especiais. Toda renda será revertida para obras sociais.
+                        </p>
+                        <div class="flex items-center text-orange-500">
+                            <i class="fas fa-tags mr-2"></i>
+                            <span>Preços variados</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Localização -->
+    <section class="py-16 bg-orange-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-orange-600 mb-8">Localização</h2>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md mb-8">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2">
+                            <h3 class="text-xl font-bold mb-4 text-orange-600">Paróquia Nossa Senhora Aparecida</h3>
+                            <p class="text-gray-700 mb-4">
+                                <i class="fas fa-map-marker-alt text-orange-500 mr-2"></i>
+                                Rua da Igreja, 123 - Sobradinho, Contagem - MG
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                <i class="fas fa-clock text-orange-500 mr-2"></i>
+                                Dias 13, 14 e 15 de Junho de 2025
+                            </p>
+                            <p class="text-gray-700 mb-4">
+                                <i class="fas fa-money-bill-wave text-orange-500 mr-2"></i>
+                                Entrada franca
+                            </p>
+                            <p class="text-gray-700">
+                                <i class="fas fa-parking text-orange-500 mr-2"></i>
+                                Estacionamento gratuito disponível
+                            </p>
+                        </div>
+                        <div class="md:w-1/2">
+                            <div class="map-container">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1920.9412477707283!2d-47.840785577359455!3d-15.65124446089376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a40ac550bee89%3A0x32732f178a7fd6bf!2sPar%C3%B3quia%20Nossa%20Senhora%20Aparecida!5e0!3m2!1spt-BR!2sbr!4v1745867457465!5m2!1spt-BR!2sbr" 
+                                    width="100%" 
+                                    height="100%" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <h3 class="text-xl font-bold mb-4 text-orange-600">Como chegar</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <i class="fas fa-bus text-3xl text-orange-500 mb-2"></i>
+                            <h4 class="font-bold mb-1">Ônibus</h4>
+                            <p class="text-sm text-gray-600">Linhas 101, 205 e 304 - ponto em frente à igreja</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <i class="fas fa-car text-3xl text-orange-500 mb-2"></i>
+                            <h4 class="font-bold mb-1">Carro</h4>
+                            <p class="text-sm text-gray-600">Estacionamento gratuito no local</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <i class="fas fa-taxi text-3xl text-orange-500 mb-2"></i>
+                            <h4 class="font-bold mb-1">Táxi/App</h4>
+                            <p class="text-sm text-gray-600">Endereço disponível nos aplicativos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Patrocinadores -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-orange-600 mb-12">Apoiadores</h2>
+            
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+                <div class="bg-gray-100 p-4 rounded-lg w-32 h-24 flex items-center justify-center">
+                    <i class="fas fa-store text-4xl text-orange-500"></i>
+                    <span class="sr-only">Mercado Local</span>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg w-32 h-24 flex items-center justify-center">
+                    <i class="fas fa-utensils text-4xl text-orange-500"></i>
+                    <span class="sr-only">Restaurante da Comunidade</span>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg w-32 h-24 flex items-center justify-center">
+                    <i class="fas fa-pizza-slice text-4xl text-orange-500"></i>
+                    <span class="sr-only">Pizzaria Vizinha</span>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg w-32 h-24 flex items-center justify-center">
+                    <i class="fas fa-ice-cream text-4xl text-orange-500"></i>
+                    <span class="sr-only">Sorveteria Doce Sabor</span>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg w-32 h-24 flex items-center justify-center">
+                    <i class="fas fa-bread-slice text-4xl text-orange-500"></i>
+                    <span class="sr-only">Padaria Pão Quentinho</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="py-16 bg-orange-600 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Contato e Informações</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Fale conosco</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-phone-alt mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold">Telefone</h4>
+                                    <p>(31) 3333-4444</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-envelope mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold">E-mail</h4>
+                                    <p>paroquiansa.sobradinho@gmail.com</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fab fa-facebook mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold">Facebook</h4>
+                                    <p>/ParoquiaSobradinho</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fab fa-instagram mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold">Instagram</h4>
+                                    <p>@paroquiansa_sobradinho</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Seja um voluntário</h3>
+                        <p class="mb-4">
+                            Quer ajudar na organização da festa? Entre em contato conosco e faça parte dessa equipe!
+                        </p>
+                        <a href="#" class="btn-primary inline-block px-6 py-2 rounded-full font-bold text-white bg-white bg-opacity-20 hover:bg-opacity-30">
+                            Quero ser voluntário
+                        </a>
+                        
+                        <h3 class="text-xl font-bold mt-8 mb-4">Doações</h3>
+                        <p>
+                            Aceitamos doações de alimentos, brindes e materiais para os jogos. Sua contribuição faz a diferença!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-orange-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold flex items-center">
+                        <i class="fas fa-church mr-2"></i>
+                        Paróquia Nossa Senhora Aparecida
+                    </h3>
+                    <p class="text-sm">Sobradinho - Contagem/MG</p>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="#" class="text-white hover:text-orange-200 text-2xl">
+                        <i class="fab fa-facebook"></i>
+                        <span class="sr-only">Facebook</span>
+                    </a>
+                    <a href="#" class="text-white hover:text-orange-200 text-2xl">
+                        <i class="fab fa-instagram"></i>
+                        <span class="sr-only">Instagram</span>
+                    </a>
+                    <a href="#" class="text-white hover:text-orange-200 text-2xl">
+                        <i class="fab fa-whatsapp"></i>
+                        <span class="sr-only">WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-orange-700 mt-6 pt-6 text-center text-sm">
+                <p>&copy; 2025 Paróquia Nossa Senhora Aparecida - Todos os direitos reservados</p>
+                <p class="mt-2">Desenvolvido com ❤️ pela comunidade</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Contagem regressiva
+        function updateCountdown() {
+            const eventDate = new Date('June 13, 2025 18:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+            
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('countdown').innerHTML = '<div class="text-2xl font-bold">A festa já começou! Venha participar!</div>';
+            }
+        }
+        
+        updateCountdown();
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        
+        // Smooth scrolling para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Efeito de hover nas cards
+        const cards = document.querySelectorAll('.card-hover');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transition = 'all 0.3s ease';
+            });
+        });
+    </script>
+</body>
+</html>
